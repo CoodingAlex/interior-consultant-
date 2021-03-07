@@ -1,0 +1,261 @@
+:root {
+  --just-black: #181719;
+  --just-white: #ffffff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--just-black);
+  color: var(--just-white);
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--just-white);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.header__logo {
+  border: 1px solid var(--just-white);
+  padding: 8px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-family: 'Crimson Pro', serif;
+  text-transform: uppercase;
+}
+
+.header__menu {
+  list-style: none;
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  right: 0%;
+  background-color: var(--just-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 100%;
+  transition: 0.25s all;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.header__menu--item {
+  font-size: 1.8rem;
+  margin-bottom: 32px;
+}
+
+.header__menu--item.home {
+  border-bottom: 1px solid var(--just-white);
+  padding-bottom: 8px;
+  /*i want the same space bottom in all the li so i substract
+    total-li-margin - padding-this-element border-this-element
+    if i do not do this i will get a space bottom of 32 (margin) + 8 (padding)+ 1 (border) = 41
+  */
+  margin-bottom: calc(32px - 8px - 1px);
+}
+
+/*this class make the close icon be in top-right side of the screen*/
+.header__menu--item.hide-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 10px;
+  padding-top: 10px;
+  width: 100%;
+  text-align: end;
+}
+.header__show-menu,
+.header__hide-menu {
+  font-size: 2.5rem;
+}
+
+#menu__checkbox {
+  display: none;
+}
+
+#menu__checkbox:checked ~ .header__menu {
+  left: 0;
+}
+
+.main {
+  margin-top: 30px;
+}
+
+.main__title {
+  margin-bottom: 25px;
+  font-family: 'Lora', serif;
+  font-size: 3.6rem;
+  line-height: 46.08px;
+  font-weight: 500;
+}
+
+.main__content {
+  margin-bottom: 25px;
+  font-family: 'Montserrat', sans-serif;
+  width: 250px;
+  font-size: 1.4rem;
+  line-height: 17.07px;
+  font-weight: 400;
+}
+
+.main__read-more {
+  display: block;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  line-height: 17.07px;
+  font-weight: 700;
+}
+
+.main__image--container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main__image {
+  width: 100%;
+}
+
+.main__card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 10px 20px 20px;
+  margin: 0 23px 0 auto;
+  transform: translateY(-60px);
+  background-color: var(--just-black);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: -1;
+}
+
+.main__card--header {
+  display: flex;
+}
+
+.card__header--img {
+  max-width: 40px;
+  max-height: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.card__header--info {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card__header--title {
+  font-size: 1.2rem;
+  line-height: 14.63px;
+  font-weight: 500;
+}
+.card__header--description {
+  font-size: 1rem;
+  line-height: 12.19px;
+  font-weight: 500;
+  color: #828282;
+}
+
+.main__card--content {
+  margin-top: 21px;
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  line-height: 23.04px;
+  font-weight: 700;
+  width: 210px;
+}
+
+@media (min-width: 800px) {
+  body {
+    padding: 50px 70px;
+  }
+  .header__logo {
+    font-size: 1.4rem;
+  }
+  .header__menu {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    height: inherit;
+    width: auto;
+  }
+  .header__menu--item {
+    margin-left: 86px;
+  }
+  .header__show-menu,
+  .header__hide-menu {
+    display: none;
+  }
+  .main {
+    display: flex;
+    height: 80vh;
+    align-items: center;
+  }
+
+  .main__title {
+    font-size: 4.8rem;
+    line-height: 61.44px;
+  }
+  .main__content {
+    font-size: 2.4rem;
+    line-height: 29.26px;
+    width: 60%;
+  }
+  .main__read-more {
+    font-size: 1.8rem;
+  }
+  .main__info--container {
+    width: 50%;
+    padding-bottom: 150px;
+    height: 100%;
+  }
+
+  .main__images--container {
+    width: 50%;
+    height: inherit;
+  }
+
+  .main__card {
+    width: 410px;
+    height: 189px;
+    padding: 30px;
+  }
+  .main__card--header {
+    align-items: center;
+  }
+  .card__header--img {
+    max-width: 60px;
+    max-height: 40px;
+  }
+
+  .card__header--title {
+    font-size: 1.4rem;
+  }
+  .card__header--description {
+    font-size: 1.2rem;
+  }
+  .main__card--content {
+    font-size: 2.4rem;
+  }
+}
